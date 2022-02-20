@@ -1,5 +1,4 @@
 package calendar;
-import java.util.Scanner;
 
 public class Calendar {
 
