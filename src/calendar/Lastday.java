@@ -19,6 +19,7 @@ public class Lastday {
 		
 		System.out.printf("%d월은 %d일까지 있습니다.", month, last.getMaxDaysOfMonth(month));
 		scanner.close();
+		
 	}
 }
-	
+	;
