@@ -2,16 +2,22 @@ package calendar;
 import java.util.Scanner;
 
 public class Repeat {
-
 	public static void main(String[] args) {
-		System.out.println("반복횟수를 입력하세요.");
 		Scanner scanner = new Scanner(System.in);
-		int repeat = scanner.nextInt();
-
-		for (int i = 0; i < repeat; i++) {
+		Lastday last = new Lastday();
+		String PROMPT = "cal>";
+		
+		int month = 1;
+		while (true) {
 			System.out.println("월을 입력하세요.");
-			int month = scanner.nextInt();
-			Lastday last = new Lastday();
+			System.out.print(PROMPT);
+			month = scanner.nextInt();
+			if(month == -1) {
+				break;
+			}
+			if(month > 12) {
+				continue;
+			}
 			System.out.printf("%d월은 %d일까지 있습니다.\n", month, last.getMaxDaysOfMonth(month));
 		}
 		
