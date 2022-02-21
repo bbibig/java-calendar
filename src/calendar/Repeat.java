@@ -8,6 +8,7 @@ public class Repeat {
 		String PROMPT = "cal>";
 		
 		int month = 1;
+		int year = 1;
 		while (true) {
 			System.out.println("월을 입력하세요.");
 			System.out.print(PROMPT);
@@ -18,7 +19,7 @@ public class Repeat {
 			if(month > 12) {
 				continue;
 			}
-			System.out.printf("%d월은 %d일까지 있습니다.\n", month, last.getMaxDaysOfMonth(month));
+			System.out.printf("%d년 %d월은 %d일까지 있습니다.", year, month, last.getMaxDaysOfMonth(year, month));
 		}
 		
 		System.out.println("Bye!");

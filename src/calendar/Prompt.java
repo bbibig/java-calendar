@@ -11,24 +11,31 @@ public class Prompt {
 		Lastday last = new Lastday();
 
 		int month = 1;
+		int year = 1;
+		
 		while (true) {			
 			System.out.println();
+			System.out.println("연도을 입력하세요.");
+			System.out.print("YEAR> ");
+			year = scanner.nextInt();
+			
 			System.out.println("월을 입력하세요.");
-			System.out.print(PROMPT);
+			System.out.print("MONTH> ");
 			month = scanner.nextInt();	
+			
 		if (month == -1) {
 			break;
 		}	
 		if (month > 12) {
 			continue;
 		}
-		cal.printCalendar(2022, month);
+		cal.printCalendar(year, month);
 		}
 		System.out.println("Bye!");
 	}
 
 	public static void main(String[] args) {
-		// 셀 실행
+		//실행
 		Prompt p = new Prompt();
 		p.runPrompt();
 	}
