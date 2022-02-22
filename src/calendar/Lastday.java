@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Lastday {
 
-	private static final int[] MAX_DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-	private static final int[] LEAP_MAX_DAYS = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private static final int[] MAX_DAYS = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	private static final int[] LEAP_MAX_DAYS = {0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 	
 	public boolean isLeapYear(int year) {
 		if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))
@@ -15,9 +15,9 @@ public class Lastday {
 	
 	public int getMaxDaysOfMonth(int year, int month) {
 		if (isLeapYear(year)) {
-			return LEAP_MAX_DAYS[month -1];
+			return LEAP_MAX_DAYS[month];
 		} else {
-		return MAX_DAYS[month - 1];
+		return MAX_DAYS[month];
 		}
 	}
 	

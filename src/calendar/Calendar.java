@@ -5,11 +5,14 @@ import java.util.Scanner;
 public class Calendar {
 	Lastday last = new Lastday();
 
-	public void printCalendar(int year, int month, int weekday) {
+	public void printCalendar(int year, int month) {
 		System.out.printf("   <<%4d년%3d월>>\n", year, month);
 		System.out.println(" SU MO TU WE TH FR SA");
 		System.out.println("----------------------");
-
+		
+		//get weekday automatically
+		int weekday = getWeekDay(year, month, 1);
+		
 		// print blank space
 		for (int j = 0; j < weekday; j++) {
 			System.out.print("   ");
@@ -37,5 +40,30 @@ public class Calendar {
 //				+ "22 23 24 25 26 27 28\r\n" + "29 30 31");
 		}
 		System.out.println();
+	}
+
+	private int getWeekDay(int year, int month, int day) {
+		//기준 날짜 : 1970/Jan/1st = Thursday
+		int syear = 1970;
+		final int STANDARD_WEEKDAY = 3;
+		
+		int count = 0;
+		
+		for (int i = syear; i < year; i++) {
+			int delta = last.isLeapYear(i) ? 366 : 365;
+			count += delta;
+		}
+		
+		//월
+		for (int i = 1; i < month; i++) {
+			int delta = last.getMaxDaysOfMonth(year,i);
+			count =+ delta;
+		}
+		
+		count += day;
+		
+		//요일
+		int weekday = (count + STANDARD_WEEKDAY) % 7;
+		return weekday;
 	}
 }
